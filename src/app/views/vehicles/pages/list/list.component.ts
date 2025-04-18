@@ -3,6 +3,7 @@ import { Vehicle } from '../../model/vehicle.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator'
 import { MatSort } from '@angular/material/sort';
+import { VehicleApiService } from '../../services/vehicle-api.service';
 
 @Component({
   selector: 'app-list',
@@ -11,53 +12,19 @@ import { MatSort } from '@angular/material/sort';
 })
 export class ListComponent implements OnInit, AfterViewInit {
 
-  vehicles: Vehicle[] = [
-    {
-      id: 0,
-      placa: 'ABC1D23',
-      chassi: '1f1 6FPSA8 He 6C1581',
-      renavam: '22193945321',
-      modelo: 'Limousine',
-      marca: 'Ford',
-      ano: 2009,
-    },
-    {
-      id: 0,
-      placa: 'ABC1D23',
-      chassi: '1f1 6FPSA8 He 6C1581',
-      renavam: '22193945321',
-      modelo: 'Limousine',
-      marca: 'Ford',
-      ano: 2009,
-    },
-    {
-      id: 0,
-      placa: 'ABC1D23',
-      chassi: '1f1 6FPSA8 He 6C1581',
-      renavam: '22193945321',
-      modelo: 'Limousine',
-      marca: 'Ford',
-      ano: 2009,
-    },
-    {
-      id: 0,
-      placa: 'ABC1D23',
-      chassi: '1f1 6FPSA8 He 6C1581',
-      renavam: '22193945321',
-      modelo: 'Limousine',
-      marca: 'Ford',
-      ano: 2009,
-    },
-  ];
+  vehicles: Vehicle[] = [];
   displayedColumns: string[] = ['placa', 'chassi', 'renavam', 'modelo', 'marca', 'ano', 'actions'];
 
   dataSource: MatTableDataSource<Vehicle> = new MatTableDataSource<Vehicle>();
-  @ViewChild(MatPaginator, { static: false }) paginator : MatPaginator = new MatPaginator(new MatPaginatorIntl(), ChangeDetectorRef.prototype);
+  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator = new MatPaginator(new MatPaginatorIntl(), ChangeDetectorRef.prototype);
   @ViewChild(MatSort, { static: false }) sort: MatSort = new MatSort();
 
+  constructor(
+    private vehiclesService: VehicleApiService
+  ) { }
+
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource(this.vehicles); //Atualiza os valores da tabela com o this.vehicles
-    this.setTableConfigs();
+    this.getVehicles();
   }
 
   ngAfterViewInit() {
@@ -82,4 +49,16 @@ export class ListComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+  getVehicles() {
+    this.vehiclesService.getVehicles().subscribe(v => {
+      this.vehicles = v;
+      this.dataSource = new MatTableDataSource(this.vehicles); //Atualiza os valores da tabela com o this.vehicles
+      this.setTableConfigs();
+      console.log("Veiculos",this.vehicles);
+    },
+      error => {
+        console.log("Ocorreu um erro ao buscar os veículos... Tente novamente mais tarde.");
+      }
+    )
+  }
 }
