@@ -1,1 +1,45 @@
-<p>list works!</p>
+<div class="content">
+    <h1 class="title">Listagem de Veículos</h1>
+    <div class="overflow">
+        <table mat-table [dataSource]="dataSource" class="table" matSort>
+            <ng-container *ngFor="let column of displayedColumns">
+                <ng-container matColumnDef="{{column}}" *ngIf="column != 'actions'">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{column |titlecase }} </th>
+                    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+                </ng-container>
+            </ng-container>
+            <ng-container matColumnDef="actions" stickyEnd>
+                <th mat-header-cell *matHeaderCellDef> Ações </th>
+                <td mat-cell *matCellDef="let element">
+                    <div class="actions">
+                        <button mat-button matTooltip="Detalhes" class="view">
+                            <mat-icon aria-hidden="false" aria-label="Detalhes" fontIcon="visibility"></mat-icon>
+                        </button>
+                        <button mat-button matTooltip="Editar" class="edit">
+                            <mat-icon aria-hidden="false" aria-label="Editar" fontIcon="edit"></mat-icon>
+                        </button>
+                        <button mat-button matTooltip="Excluir" class="delete">
+                            <mat-icon aria-hidden="false" aria-label="Excluir" fontIcon="delete"></mat-icon>
+                        </button>
+                    </div>
+                </td>
+            </ng-container>
+
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell no-data" [attr.colspan]="displayedColumns.length"> 
+                    <div class="text">
+                        <mat-icon aria-hidden="false" aria-label="Atenção" fontIcon="error"></mat-icon>
+                        Ainda não existem veículos cadastrados...
+                    </div>
+                </td>
+            </tr>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+    <mat-paginator [length]="dataSource.data.length" [pageSize]="15"
+        aria-label="Paginação da tabela de veículos"></mat-paginator>
+    <div class="vehicle-wrapper">
+    </div>
+</div>

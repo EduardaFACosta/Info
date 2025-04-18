@@ -1,0 +1,74 @@
+.content {
+
+    --bgColor: #f5f5f5;
+    --textColor: #2d2d2d;
+
+    --blue: #4e85e5;
+    --yellow: #fabf0f;
+    --red: #f35353;
+    --white: #fff;
+
+
+    background-color: var(--bgColor);
+    padding: 2rem;
+    font-size: 16px;
+    color: var(--textColor);
+    height: 100%;
+
+    .title {
+        font-size: 24px;
+    }
+
+    .table {
+        width: 100%;
+        min-width: 600px;
+
+        .actions {
+            display: flex;
+            gap: 4px;
+
+            button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 4px;
+                color: var(--white);
+                cursor: pointer;
+                border: none;
+                outline: none;
+                padding: 2px 4px;
+            }
+
+            .view {
+                background-color: var(--blue);
+            }
+
+            .edit {
+                background-color: var(--yellow);
+            }
+
+            .delete {
+                background-color: var(--red);
+            }
+        }
+
+        .no-data {
+            background-color: #fff1c8;
+            color: #c57629;
+            padding: 1rem;
+            border: 3px solid #ebc6a1;
+            border-radius: 10px;
+
+            .text {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .overflow {
+        overflow: auto;
+    }
+}
