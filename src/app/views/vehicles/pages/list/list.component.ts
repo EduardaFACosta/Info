@@ -4,6 +4,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator'
 import { MatSort } from '@angular/material/sort';
 import { VehicleApiService } from '../../services/vehicle-api.service';
+import { DeleteDialogComponent } from '../../components/delete-dialog/delete-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-list',
@@ -20,7 +22,8 @@ export class ListComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort, { static: false }) sort: MatSort = new MatSort();
 
   constructor(
-    private vehiclesService: VehicleApiService
+    private vehiclesService: VehicleApiService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -54,11 +57,24 @@ export class ListComponent implements OnInit, AfterViewInit {
       this.vehicles = v;
       this.dataSource = new MatTableDataSource(this.vehicles); //Atualiza os valores da tabela com o this.vehicles
       this.setTableConfigs();
-      console.log("Veiculos",this.vehicles);
     },
       error => {
         console.log("Ocorreu um erro ao buscar os veículos... Tente novamente mais tarde.");
       }
     )
+  }
+
+  deleteVehicle(id: number, placa: string) {
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+      data: {
+        id: id,
+        placa: placa,
+      }
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result && result === 'success') {
+        this.getVehicles();
+      }
+    })
   }
 }

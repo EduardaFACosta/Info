@@ -1,0 +1,11 @@
+.content {
+    --bgColor: #f5f5f5;
+    background-color: var(--bgColor);
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        max-width: 300px;
+    }
+}

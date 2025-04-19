@@ -1,0 +1,13 @@
+.content {
+    --bgColor: #f5f5f5;
+    --textColor: #2d2d2d;
+
+    background-color: var(--bgColor);
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        max-width: 300px;
+    }
+}

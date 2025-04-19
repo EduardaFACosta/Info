@@ -1,1 +1,31 @@
-<p>add works!</p>
+<div class="content">
+    <h1 class="title">Adição de Veículo</h1>
+
+    <form class="form" [formGroup]="addForm">
+        <mat-form-field>
+            <mat-label>Placa</mat-label>
+            <input matInput placeholder="Placa" type="text" formControlName="placa" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Chassi</mat-label>
+            <input matInput placeholder="Chassi" type="text" formControlName="chassi" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Renavam</mat-label>
+            <input matInput placeholder="Renavam" type="text" formControlName="renavam" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Modelo</mat-label>
+            <input matInput placeholder="Modelo" type="text" formControlName="modelo" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Marca</mat-label>
+            <input matInput placeholder="Marca" type="text" formControlName="marca" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Ano</mat-label>
+            <input matInput placeholder="Ano" type="number" formControlName="ano" required>
+        </mat-form-field>
+        <button (click)="addVehicle()">SALVAR</button>
+    </form>
+</div>

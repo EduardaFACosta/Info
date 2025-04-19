@@ -17,13 +17,13 @@
                 <th mat-header-cell *matHeaderCellDef> Ações </th>
                 <td mat-cell *matCellDef="let element">
                     <div class="actions">
-                        <button mat-button matTooltip="Detalhes" class="view">
+                        <button mat-button matTooltip="Detalhes" class="view" [routerLink]="'/detail/'+element.id">
                             <mat-icon aria-hidden="false" aria-label="Detalhes" fontIcon="visibility"></mat-icon>
                         </button>
-                        <button mat-button matTooltip="Editar" class="edit">
+                        <button mat-button matTooltip="Editar" class="edit" [routerLink]="'/edit/'+element.id">
                             <mat-icon aria-hidden="false" aria-label="Editar" fontIcon="edit"></mat-icon>
                         </button>
-                        <button mat-button matTooltip="Excluir" class="delete">
+                        <button mat-button matTooltip="Excluir" class="delete" (click)="deleteVehicle(element.id, element.placa)">
                             <mat-icon aria-hidden="false" aria-label="Excluir" fontIcon="delete"></mat-icon>
                         </button>
                     </div>

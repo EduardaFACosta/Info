@@ -53,6 +53,11 @@
                 border: none;
                 outline: none;
                 padding: 2px 4px;
+                min-width: 40px;
+
+                .mat-icon{
+                    margin-right: 0;
+                }
             }
 
             .view {

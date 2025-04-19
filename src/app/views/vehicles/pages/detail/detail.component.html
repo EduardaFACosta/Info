@@ -1,1 +1,30 @@
-<p>detail works!</p>
+<div class="content">
+    <div class="title">Detalhes do Veículo</div>
+    <div class="items-wrapper">
+        <div class="item">
+            <div class="label">Placa</div>
+            <div class="value">{{selectedVehicle.placa}}</div>
+        </div>
+        <div class="item">
+            <div class="label">Chassi</div>
+            <div class="value">{{selectedVehicle.chassi}}</div>
+        </div>
+        <div class="item">
+            <div class="label">Renavam</div>
+            <div class="value">{{selectedVehicle.renavam}}</div>
+        </div>
+        <div class="item">
+            <div class="label">Modelo</div>
+            <div class="value">{{selectedVehicle.modelo}}</div>
+        </div>
+        <div class="item">
+            <div class="label">Marca</div>
+            <div class="value">{{selectedVehicle.marca}}</div>
+        </div>
+        <div class="item">
+            <div class="label">Ano</div>
+            <div class="value">{{selectedVehicle.ano}}</div>
+        </div>
+    </div>
+    <button class="goBack" mat-button routerLink="/list">Voltar</button>
+</div>

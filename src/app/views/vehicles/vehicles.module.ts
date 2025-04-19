@@ -18,9 +18,19 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatIconModule} from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSortModule } from '@angular/material/sort';
+import { MatInputModule } from '@angular/material/input';
 
 // Para as apis
 import { HttpClientModule } from '@angular/common/http'; 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+
+//Para os popups
+import { MatDialogModule } from '@angular/material/dialog';
+import { MessageDialogComponent } from './components/message-dialog/message-dialog.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -29,18 +39,27 @@ import { HttpClientModule } from '@angular/common/http';
     DetailComponent,
     EditComponent,
     AddComponent,
-    DeleteDialogComponent
+    DeleteDialogComponent,
+    MessageDialogComponent
   ],
   imports: [
     CommonModule,
     VehiclesRoutingModule,
+    BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
     MatIconModule,
     MatTooltipModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    MatProgressBarModule,
     HttpClientModule 
-  ]
+  ],
 })
 export class VehiclesModule { }

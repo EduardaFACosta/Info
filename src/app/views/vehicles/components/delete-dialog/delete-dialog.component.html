@@ -1,1 +1,10 @@
-<p>delete-dialog works!</p>
+<mat-dialog-content>
+<div class="warning">Anteção!</div>
+<div class="text">
+    Você tem certeza que deseja deletar o veículo com a placa {{data.placa}}?
+</div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+    <button mat-button (click)="this.deleteVehicle()">Deletar</button>
+  </mat-dialog-actions>
