@@ -1,31 +1,72 @@
 <div class="content">
-    <h1 class="title">Adição de Veículo</h1>
+    <h1 class="title">
+        <mat-icon aria-hidden="false" aria-label="Adição" fontIcon="directions_car"></mat-icon>
+        Adição de Veículo
+    </h1>
 
-    <form class="form" [formGroup]="addForm">
-        <mat-form-field>
-            <mat-label>Placa</mat-label>
-            <input matInput placeholder="Placa" type="text" formControlName="placa" required>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Chassi</mat-label>
-            <input matInput placeholder="Chassi" type="text" formControlName="chassi" required>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Renavam</mat-label>
-            <input matInput placeholder="Renavam" type="text" formControlName="renavam" required>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Modelo</mat-label>
-            <input matInput placeholder="Modelo" type="text" formControlName="modelo" required>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Marca</mat-label>
-            <input matInput placeholder="Marca" type="text" formControlName="marca" required>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Ano</mat-label>
-            <input matInput placeholder="Ano" type="number" formControlName="ano" required>
-        </mat-form-field>
-        <button (click)="addVehicle()">SALVAR</button>
-    </form>
+    <button class="goBack" mat-button routerLink="/list">
+        <mat-icon aria-hidden="false" aria-label="Voltar" fontIcon="arrow_back"></mat-icon>
+        Voltar
+    </button>
+    <div class="wrapper">
+        <form class="form" [formGroup]="addForm">
+            <div class="input">
+                <mat-form-field>
+                    <mat-label>Placa</mat-label>
+                    <input matInput placeholder="Placa" type="text" formControlName="placa" minlength="7" maxlength="7"
+                        required>
+                </mat-form-field>
+                <mat-error *ngIf="addForm.controls['placa'].touched && addForm.controls['placa'].invalid">A placa deve
+                    ser válida (7
+                    dígitos)</mat-error>
+            </div>
+            <div class="input">
+                <mat-form-field>
+                    <mat-label>Chassi</mat-label>
+                    <input matInput placeholder="Chassi" type="text" formControlName="chassi" minlength="17"
+                        maxlength="17" required>
+                </mat-form-field>
+                <mat-error *ngIf="addForm.controls['chassi'].touched && addForm.controls['chassi'].invalid">O chassi
+                    deve ser válido (17
+                    dígitos)</mat-error>
+            </div>
+            <div class="input">
+                <mat-form-field>
+                    <mat-label>Renavam</mat-label>
+                    <input matInput placeholder="Renavam" type="text" formControlName="renavam" minlength="11"
+                        maxlength="11" required>
+                </mat-form-field>
+                <mat-error *ngIf="addForm.controls['renavam'].touched && addForm.controls['renavam'].invalid">O renavam
+                    deve ser válido (11
+                    dígitos)</mat-error>
+            </div>
+            <div class="input">
+                <mat-form-field>
+                    <mat-label>Modelo</mat-label>
+                    <input matInput placeholder="Modelo" type="text" formControlName="modelo" required>
+                </mat-form-field>
+                <mat-error *ngIf="addForm.controls['modelo'].touched && addForm.controls['modelo'].invalid">O modelo
+                    deve ser indicado</mat-error>
+            </div>
+            <div class="input">
+                <mat-form-field>
+                    <mat-label>Marca</mat-label>
+                    <input matInput placeholder="Marca" type="text" formControlName="marca" required>
+                </mat-form-field>
+                <mat-error *ngIf="addForm.controls['marca'].touched && addForm.controls['marca'].invalid">A marca deve
+                    ser indicada</mat-error>
+            </div>
+            <div class="input">
+                <mat-form-field>
+                    <mat-label>Ano</mat-label>
+                    <input matInput placeholder="Ano" type="number" formControlName="ano"
+                        onKeyPress="if(this.value.length==4) return false;" min="1900" required>
+                </mat-form-field>
+                <mat-error *ngIf="addForm.controls['ano'].touched && addForm.controls['ano'].invalid">O ano deve ser
+                    válido</mat-error>
+            </div>
+        </form>
+        <button mat-button class="save-btn" type="button" (click)="addVehicle()"
+            [disabled]="addForm.invalid">Salvar</button>
+    </div>
 </div>

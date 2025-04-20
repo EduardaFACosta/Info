@@ -13,10 +13,17 @@
     padding: 2rem;
     font-size: 16px;
     color: var(--textColor);
-    height: 100%;
+    min-height: 85vh;
 
     .title {
-        font-size: 24px;
+        font-size: 28px;
+        font-weight: 500;
+    }
+
+    .table-paginator-wrapper {
+        background-color: var(--white);
+        padding: 1rem;
+        border-radius: 10px;
     }
 
     .add {
@@ -55,7 +62,7 @@
                 padding: 2px 4px;
                 min-width: 40px;
 
-                .mat-icon{
+                .mat-icon {
                     margin-right: 0;
                 }
             }

@@ -10,15 +10,12 @@ import { interval } from 'rxjs';
   styleUrls: ['./message-dialog.component.scss']
 })
 export class MessageDialogComponent implements AfterViewInit {
+
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: { icon: string, title: string, message: string, redirectToList: boolean },
     private dialogRef: MatDialogRef<DeleteDialogComponent>,
     private router: Router
   ) { }
-
-  remainingTime = 100;
-  curSec: number = 0;
-
 
   ngAfterViewInit(): void {
     setTimeout(() => this.closeDialog(), 2500);

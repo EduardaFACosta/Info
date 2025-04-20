@@ -7,12 +7,12 @@ const { readData, writeData } = require('./data/functions');
 app.use(cors());
 app.use(express.json());
 
-app.get('/api/vehicle', (req, res) => { // Get, apenas le os dados
+app.get('/api/vehicle', (req, res) => { // Lista os dados de veículos
     const items = readData();
     res.status(200).json(items);
 });
 
-app.get('/api/vehicle/:id', (req, res) => { // Get, apenas le os dados ( Retorna apenas o com ID igual o parâmetro indicado)
+app.get('/api/vehicle/:id', (req, res) => { // Retorna apenas os dados de um veículo requisitado ( Retorna apenas o com ID igual o parâmetro indicado)
     const items = readData();
     const id = parseInt(req.params.id);
     const result = items.find(v => { return v.id == id });
@@ -20,7 +20,7 @@ app.get('/api/vehicle/:id', (req, res) => { // Get, apenas le os dados ( Retorna
     else { res.status(404).json({ error: 'Item não encontrado' }); }
 });
 
-app.post('/api/vehicle', (req, res) => { // Para o post le os dados e adiciona um valor
+app.post('/api/vehicle', (req, res) => { // Adiciona um novo objeto na lista de items;
     const items = readData();
     const newItem = { ...req.body };
     items.push(newItem);
@@ -28,7 +28,7 @@ app.post('/api/vehicle', (req, res) => { // Para o post le os dados e adiciona u
     res.status(200).json(newItem);
 });
 
-app.put('/api/vehicle/:id', (req, res) => { // Para put,le os dados, se não encontrar o item retorna cod 404, se encontrar atualiza e retorna cod 200
+app.put('/api/vehicle/:id', (req, res) => { // Lê os dados, se não encontrar o item retorna cod 404, se encontrar atualiza e retorna cod 200
     const id = parseInt(req.params.id);
     let items = readData();
     const index = items.findIndex(item => item.id === id);
@@ -41,7 +41,7 @@ app.put('/api/vehicle/:id', (req, res) => { // Para put,le os dados, se não enc
     }
 });
 
-app.delete('/api/vehicle/:id', (req, res) => { // Para o delete, le os dados, filtra pelo id e "reescreve" o arquivo
+app.delete('/api/vehicle/:id', (req, res) => { // Lê os dados, filtra pelo id e "reescreve" o arquivo eliminando o item encontrado
     const id = parseInt(req.params.id);
     let items = readData();
     items = items.filter(item => item.id !== id);
@@ -49,7 +49,7 @@ app.delete('/api/vehicle/:id', (req, res) => { // Para o delete, le os dados, fi
     res.status(200).send();
 });
 
-app.get('/api/biggestId', (req, res) => { // Get, apenas le os dados
+app.get('/api/biggestId', (req, res) => { // Retorna o maior id no banco
     const items = readData();
     if (items && items.length > 0) {
         let id = 0;

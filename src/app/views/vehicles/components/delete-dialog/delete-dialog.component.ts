@@ -18,7 +18,6 @@ export class DeleteDialogComponent {
   ) { }
 
   deleteVehicle() {
-
     this.vehiclesService.deleteVehicle(this.data.id).subscribe( //Insere objeto a lista de veículos
       value => {
         console.log("Sucesso! Veículo deletado da listagem.");

@@ -1,10 +1,13 @@
 <mat-dialog-content>
-<div class="warning">Anteção!</div>
-<div class="text">
-    Você tem certeza que deseja deletar o veículo com a placa {{data.placa}}?
-</div>
+    <div class="title">
+        <mat-icon aria-hidden="false" fontIcon="warning" class="warning"></mat-icon>
+        Atenção!
+    </div>
+    <div class="text">
+        Você tem certeza que deseja deletar o veículo com a placa {{data.placa}}?
+    </div>
 </mat-dialog-content>
 <mat-dialog-actions>
-    <button mat-button mat-dialog-close>Close</button>
-    <button mat-button (click)="this.deleteVehicle()">Deletar</button>
-  </mat-dialog-actions>
+    <button mat-button class="goBack" mat-dialog-close>Cancelar</button>
+    <button mat-button class="delete-btn" (click)="this.deleteVehicle()">Deletar</button>
+</mat-dialog-actions>

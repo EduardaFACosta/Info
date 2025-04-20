@@ -1,30 +1,38 @@
 <div class="content">
-    <div class="title">Detalhes do Veículo</div>
-    <div class="items-wrapper">
-        <div class="item">
-            <div class="label">Placa</div>
-            <div class="value">{{selectedVehicle.placa}}</div>
-        </div>
-        <div class="item">
-            <div class="label">Chassi</div>
-            <div class="value">{{selectedVehicle.chassi}}</div>
-        </div>
-        <div class="item">
-            <div class="label">Renavam</div>
-            <div class="value">{{selectedVehicle.renavam}}</div>
-        </div>
-        <div class="item">
-            <div class="label">Modelo</div>
-            <div class="value">{{selectedVehicle.modelo}}</div>
-        </div>
-        <div class="item">
-            <div class="label">Marca</div>
-            <div class="value">{{selectedVehicle.marca}}</div>
-        </div>
-        <div class="item">
-            <div class="label">Ano</div>
-            <div class="value">{{selectedVehicle.ano}}</div>
+    <h1 class="title">
+        <mat-icon aria-hidden="false" aria-label="Detalhes" fontIcon="visibility"></mat-icon>
+        Detalhes do Veículo
+    </h1>
+    <button class="goBack" mat-button routerLink="/list">
+        <mat-icon aria-hidden="false" aria-label="Voltar" fontIcon="arrow_back"></mat-icon>
+        Voltar
+    </button>
+    <div class="wrapper">
+        <div class="items">
+            <div class="item">
+                <div class="label">Placa:</div>
+                <div class="value">{{selectedVehicle.placa}}</div>
+            </div>
+            <div class="item">
+                <div class="label">Chassi:</div>
+                <div class="value">{{selectedVehicle.chassi}}</div>
+            </div>
+            <div class="item">
+                <div class="label">Renavam:</div>
+                <div class="value">{{selectedVehicle.renavam}}</div>
+            </div>
+            <div class="item">
+                <div class="label">Modelo:</div>
+                <div class="value">{{selectedVehicle.modelo}}</div>
+            </div>
+            <div class="item">
+                <div class="label">Marca:</div>
+                <div class="value">{{selectedVehicle.marca}}</div>
+            </div>
+            <div class="item">
+                <div class="label">Ano:</div>
+                <div class="value">{{selectedVehicle.ano}}</div>
+            </div>
         </div>
     </div>
-    <button class="goBack" mat-button routerLink="/list">Voltar</button>
 </div>

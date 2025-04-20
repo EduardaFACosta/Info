@@ -12,9 +12,9 @@ import { MessageDialogComponent } from '../../components/message-dialog/message-
 })
 export class AddComponent implements OnInit {
 
-  id = 0; //Id a ser substituindo pelo maior ID que já existe
+  id = 0; // Id a ser substituindo pelo maior ID que já existe
 
-  addForm = new FormGroup(
+  addForm = new FormGroup( // Formulário para agregar os dados do veículo a ser inserido
     {
       placa: new FormControl('', Validators.required),
       chassi: new FormControl('', Validators.required),
@@ -31,9 +31,15 @@ export class AddComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this. getBiggestId();
+    this.getBiggestId();
   }
 
+  /**
+   * Método que busca o maior id no banco para poder atribuir um novo id ao novo veículo
+   * 
+   * Como os ids dessa implementação são incrementais, basta incrementar o valor obtido para gerar
+   * um novo id único.
+   */
   getBiggestId() {
     this.vehiclesService.getBiggestId().subscribe(value => {
       if (value) {
@@ -46,6 +52,9 @@ export class AddComponent implements OnInit {
     );
   }
 
+  /**
+   * Método que monta um novo objeto de veículo com os dados de formulário e o inscreve no banco.
+   */
   addVehicle() {
     const vehicleToAdd: Vehicle = { //Cria um objeto do tipo Vehicle com os valores do formulário
       id: this.id,

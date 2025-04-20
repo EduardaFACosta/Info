@@ -2,28 +2,21 @@
 O projeto consiste na apresentação e funcionalidade de um CRUD de veículos, desenvolvido em Angular como parte do processo seletivo da Info Tecnologia. 
 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+Esse projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 16.2.16.
+Foram utilizadas as tecnologias do Angular, Node.js e NPM para garantir a fácil execução do código.
 
-## Development server
+## Instalando o projeto
+Para ser possível rodar o projeto e testá-lo localmente, é necessário instalar os pacotes necessário, por meio do `npm install` dentro da pasta inicial do projeto. Desta maneira, você já tem acesso ao Front-end do projeto.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Para rodar a parte do Back-end, é necessário navegar até a pasta `\backend` e novamente digitar o comando do `npm install`. Com isso, você terá acesso as duas partes implemetadas do projeto.
 
-## Code scaffolding
+## Rodando o projeto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Para rodar o projeto é necessário utilizar 2 terminais diferentes, um para o Front-end e outro para o Back-end.
 
-## Build
+Para o Front-end, é necessário utilizar o comando `ng serve` em um dos terminais abertos e acessar o localhost em seu computador por meio de `http://localhost:4200/`. Dessa maneira, todas as telas e configurações visuais do sistema já estão disponíveis.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+Para rodar o servidor que contém as APIs, dados e todo o Backend do projeto, é necessário rodar no outro terminal o comando `node .\backend\server.js`, isso irá rodar o servidor e garantir que a população e manipulação dos dados ocorra de maneira correta!
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
