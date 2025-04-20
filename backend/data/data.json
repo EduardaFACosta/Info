@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "placa": "ABC1D23",
+    "chassi": "1f16FPSA8He6C1581",
+    "renavam": "22193945321",
+    "modelo": "Limousine",
+    "marca": "Ford",
+    "ano": 2009
+  },
+  {
+    "id": 2,
+    "placa": "ABC1D23",
+    "chassi": "1f16FPSA8He6C1581",
+    "renavam": "22193945321",
+    "modelo": "Limousine",
+    "marca": "Ford",
+    "ano": 2009
+  },
+  {
+    "id": 3,
+    "placa": "ABC1D23",
+    "chassi": "1f16FPSA8He6C1581",
+    "renavam": "22193945321",
+    "modelo": "Limousine",
+    "marca": "Ford",
+    "ano": 2009
+  }
+]

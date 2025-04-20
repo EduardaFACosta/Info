@@ -1,0 +1,10 @@
+<mat-dialog-content>
+    <div class="wrapper">
+        <p class="title"> 
+            <mat-icon *ngIf="data.icon === 'success'" aria-hidden="false" fontIcon="check_circle" class="success"></mat-icon>
+            <mat-icon *ngIf="data.icon === 'error'" aria-hidden="false" fontIcon="check_circle" class="error"></mat-icon>
+             {{data.title}} </p>
+        <p class="message"> {{ data.message }}</p>
+    </div>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</mat-dialog-content>
